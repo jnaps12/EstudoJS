@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a id="navTitle" class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="form-inline">
+        <div class="form-group mt-1 mb-1 mr-2">
+          <input type="text" class="form-control" id="desc" placeholder="Description"/>
+        </div>
+        <div class="form-group mt-1 mb-1 mr-2">
+          <input type="text" class="form-control" id="quantidade" placeholder="Quantidade"/>
+        </div>
+        <div class="form-group mt-1 mb-1 mr-2">
+          <input type="text" class="form-control" id="value" placeholder="Valor"/>
+        </div>
+        <span id="btnUpdate" style="display: none;">
+          <span id="inputIdUpdate"></span>
+          <button onClick="updateData();" class="btn btn-success">Save</button>
+          <button onClick="resetForm();" class="btn btn-danger mr-1">Cancel</button>
+        </span>
+        <span id="btnAdd"> 
+          <button onClick="addData();" class="btn btn-primary">Adicionar</button>
+          <button class="btn btn-warning" onClick="resetForm();">Reset</button>
+          <button onClick="deleteList()" class="btn btn-danger">DeleteList</button>
+        </span>
+      </div>
+      <span id="errors"></span>
+      <table class="table table-sm" id="listTable">
+        
+      </table>
+    </div>
+
+      <nav class="navbar fixed-bottom navbar-light bg-light" style="justify-content:center;">
+        <div>
+          <h4 class="text-center text-success">Total: <span id="totalValor"></span></h4>
+        </div>
+      </nav>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
