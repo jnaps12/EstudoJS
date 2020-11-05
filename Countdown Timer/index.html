@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+  <div class="input">
+    <label for="inputNameEvent">Event Name: </label>
+    <input id="nameInput" type="text" required />
+
+    <label for="date">Date to Scheduled</label>
+    <input id="dateInput" type="date" required />
+
+    <button onclick="calcTime()" type="button">Start</button>
+  </div>
+
+  <div class="result">
+    <span class="days">1 : </span>
+    <span class="hours">9 : </span>
+    <span class="minutes">5 :</span>
+    <span class="seconds">1</span>
+  </div>
+
+  <script src="./scripts/main.js"></script>
+
+</body>
+
+</html>
