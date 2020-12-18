@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aula 01 - vue</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{ titulo }}</h1>
+
+    <label for="">Nome</label>
+    <input type="text" v-model="nome">
+    <br><br>
+
+    <label for="">Telefone</label>
+    <input type="text" v-model="telefone">
+
+    <br><br>
+    <label for="">Deseja receber nossa novidades?</label>
+    <input type="radio" value="sim" v-model="novidades"> Sim
+    <input type="radio" value="não" v-model="novidades"> Não
+
+    <br><br>
+    <label for="">Interesses: </label> <br>
+    <input type="checkbox" value="futbol" v-model="interesses"> futbol <br>
+    <input type="checkbox" value="anime" v-model="interesses"> anime <br>
+    <input type="checkbox" value="corrida" v-model="interesses"> corrida <br>
+    <br><br>
+
+
+    <button>Enviar</button>
+    <hr>
+
+    Nome: {{ nome }} <br>
+    telefone: {{ telefone }} <br>
+    novidades: {{ novidades }} <br>
+    interesses: {{ interesses }} <br>
+
+
+  </div>
+
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var app = new Vue({
+      el: "#app", //app é o elemento pai
+      data: {
+        titulo: "Hello VueJS",
+        nome: "",
+        telefone: "",
+        novidades: "",
+        interesses: [],
+      }
+    });
+  </script>
+</body>
+
+</html>
