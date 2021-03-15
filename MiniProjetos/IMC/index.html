@@ -13,18 +13,18 @@
     <h1>IMC</h1>
     <form action="">
       <label for="nome">Nome</label>
-      <input type="text">
+      <input type="text" id="nome">
       
       <label for="altura">Altura</label>
-      <input type="number">
+      <input type="number" id="altura" step="0.01">
 
       <label for="peso">Peso</label>
-      <input type="number">
+      <input type="number" id="peso" step="0.01">
 
-      <button type="submit">Calcular</button>
+      <button type="button" onclick="calcularIMC()">Calcular</button>
     </form>
 
-    <div><h1 class="resposta"></h1></div>
+    <div><h1 id="resposta"></h1></div>
   </div>
 
   <script src="script.js"></script>
