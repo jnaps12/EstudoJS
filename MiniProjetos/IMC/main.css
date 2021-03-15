@@ -1,0 +1,26 @@
+
+.calculadora{
+  margin: 150px auto;
+  width: 500px;
+  height: 600px;
+  background-color: #4C3DE0;
+  color: white;  
+  padding-left: 7px;
+  padding-left: 8px;
+  padding-top: 5px;
+}
+
+.calculadora h1{
+  text-align: center;
+}
+
+.calculadora label{
+  display: block;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.calculadora input {
+  display: block;
+  margin-bottom: 2px;
+}
