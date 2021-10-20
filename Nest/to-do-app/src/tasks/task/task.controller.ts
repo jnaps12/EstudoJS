@@ -4,7 +4,7 @@ import { TaskService } from './task.service';
 
 @Controller('tasks')
 export class TaskController {
-  constructor(private taskService: TaskService) {}
+  constructor(private readonly taskService: TaskService) {}
 
   @Get()
   async getAll(): Promise<Task[]> {
