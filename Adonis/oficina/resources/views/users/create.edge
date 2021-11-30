@@ -1,0 +1,67 @@
+@layout('layouts/main')
+@set('title', 'Sign up')
+@section('body')
+  <div class="columns">
+    <div class="column is-4 is-offset-4">
+      <h2 class="title has-text-centered">Register</h2>
+
+      @if(flashMessages.has('success'))
+        <p>{{ flashMessages.get('success') }}</p>
+      @endif
+
+      <form action="{{ route('users.store') }}" method="POST">
+        {{ csrfField() }}
+
+        <div class="field">
+          <label class="label">Email</label>
+
+          <div class="control">
+            <input
+              type="email"
+              class="input {{ flashMessages.has('errors.email') ? 'is-danger' : '' }}"
+              name="email""
+              value="{{ flashMessages.get('user[email]', '') }}">
+          </div>
+          @if(flashMessages.has('errors.email'))
+            <span class="help is-danger">{{ flashMessages.get('errors.email', "Enter email") }}</span>
+          @endif
+        </div>
+
+        <div class="field">
+          <label class="label">Password</label>
+
+          <div class="control">
+            <input
+              type="password"
+              class="input {{ flashMessages.has('errors.password') ? 'is-danger' : '' }}"
+              name="password">
+          </div>
+
+          @if(flashMessages.has('errors.password'))
+            <span class="help is-danger">{{ flashMessages.get('errors.password', "Enter password") }}</span>
+          @endif
+        </div>
+
+        <div class="field">
+          <label class="label">Confirm Password</label>
+
+          <div class="control">
+            <input
+              type="password"
+              class="input {{ flashMessages.has('errors.password') ? 'is-danger' : '' }}"
+              name="confirm_password">
+          </div>
+
+          @if(flashMessages.has('errors.password'))
+            <span class="help is-danger">{{ flashMessages.get('errors.password', "Enter password") }}</span>
+          @endif
+        </div>
+        <br>
+        <div class="control">
+          <button type="submit" class="button is-dark is-fullwidth is-uppercase">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+@end

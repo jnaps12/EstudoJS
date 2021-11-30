@@ -1,0 +1,47 @@
+@layout('layouts/main')
+@set('title', 'Caixa Mecânico')
+
+@section('body')
+
+@if(flashMessages.has('message'))
+  <p>{{ flashMessages.get('message') }}</p>
+@endif
+@if(auth.isLoggedIn)
+  <p>Hello Email: {{ auth.user.email }}</p>
+@endif
+  {{ csrfField() }}
+  <table>
+    <th>Id</th>
+    <th>Valor</th>
+    <th>Descrição</th>
+    <th>Entrada?</th>
+    <th>Fiado</th>
+    <th>Criado em</th>
+    <th>Atualizado em</th>
+    <th>Deletar</th>
+  </tr>
+  @each(caixa in caixas)
+    <tr>
+      <td>{{ caixa.id }}</td>
+      <td>{{ caixa.valor }}</td>
+      <td>{{ caixa.descricao }}</td>
+      <td>{{ caixa.isEntrada ? "Entrada" : "Saída" }}</td>
+      <td>{{ caixa.fiado ? "Sim" : "Não" }}</td>
+      <td>{{ caixa.createdAt }}</td>
+      <td>{{ caixa.updatedAt ? caixa.updatedAt : "Sem registro"}}</td>
+      <td>
+        <form form action="/caixa/{{ caixa.id }}/delete" method="POST">
+          {{ csrfField() }}
+          <button type="submit">Deletar</button>
+        </form>
+      </td>
+    </tr>
+  @end
+</table>
+  @if(auth.user.email_verified_at === null)
+  <form action="/send_email" method="POST">
+    {{ csrfField() }}
+    <button type="submit">Resend</button>
+  </form>
+  @endif
+@end

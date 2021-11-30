@@ -1,0 +1,49 @@
+@layout('layouts/main')
+@set('title', 'Editar caixa')
+@section('body')
+
+  <form action="/caixa/{{ caixa.id }}?_method=PUT" method="POST">
+      {{ csrfField() }}
+
+      <div>
+        <p>
+          <label for="valor"> Valor </label>
+        </p>
+
+        <input type="number" name="valor" value="{{ caixa.valor}}" />
+      </div>
+
+      <div>
+        <p>
+          <label for="descricao"> Descrição </label>
+        </p>
+
+        <textarea name="descricao" cols="30" rows="10">{{ caixa.descricao }}</textarea>
+      </div>
+
+      <div>
+        <p>
+          <label for="body"> Entrada ou Saída </label>
+        </p>
+          <input type="radio" id="entrada" name="isEntrada" value="1" {{caixa.isEntrada ? 'checked' : ''}}>
+          <label for="entrada">Entrada</label><br>
+          <input type="radio" id="saida" name="isEntrada" value="0" {{!caixa.isEntrada ? 'checked' : ''}}>
+          <label for="saida">Saída</label>
+      </div>
+      
+      <div>
+        <p>
+          <label for="fiado"> Fiado </label>
+        </p>
+
+        <input type="radio" id="fiado" name="fiado" value="1" {{ caixa.fiado ? 'checked' : '' }}>
+        <label for="fiado">Sim</label><br>
+        <input type="radio" id="fiado" name="fiado" value="0" {{ !caixa.fiado ? 'checked' : '' }}>
+        <label for="fiado">Não</label>
+      </div>
+
+      <div>
+        <button type="submit">Salvar</button>
+      </div>
+  </form>
+@end
