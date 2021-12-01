@@ -1,47 +1,69 @@
 @layout('layouts/main')
 @set('title', 'Caixa Mecânico')
+@set('page', 'Caixa Mecânico')
+
+
 
 @section('body')
+{{ csrfField() }}
 
 @if(flashMessages.has('message'))
-  <p>{{ flashMessages.get('message') }}</p>
+    <p>{{ flashMessages.get('message') }}</p>
 @endif
-@if(auth.isLoggedIn)
-  <p>Hello Email: {{ auth.user.email }}</p>
-@endif
+
+@if(auth.user.email_verified_at === null)
+<form action="/send_email" method="POST">
   {{ csrfField() }}
-  <table>
-    <th>Id</th>
-    <th>Valor</th>
-    <th>Descrição</th>
-    <th>Entrada?</th>
-    <th>Fiado</th>
-    <th>Criado em</th>
-    <th>Atualizado em</th>
-    <th>Deletar</th>
-  </tr>
-  @each(caixa in caixas)
+  <button type="submit">Resend</button>
+</form>
+@endif
+
+<table class="table is-fullwidth">
+  <thead>
     <tr>
-      <td>{{ caixa.id }}</td>
-      <td>{{ caixa.valor }}</td>
-      <td>{{ caixa.descricao }}</td>
-      <td>{{ caixa.isEntrada ? "Entrada" : "Saída" }}</td>
-      <td>{{ caixa.fiado ? "Sim" : "Não" }}</td>
-      <td>{{ caixa.createdAt }}</td>
-      <td>{{ caixa.updatedAt ? caixa.updatedAt : "Sem registro"}}</td>
-      <td>
-        <form form action="/caixa/{{ caixa.id }}/delete" method="POST">
-          {{ csrfField() }}
-          <button type="submit">Deletar</button>
-        </form>
-      </td>
+      <th>Descrição</th>
+      <th><abbr title="valor">Valor</abbr></th>
+      <th><abbr title="entrada">Entrada ou Saída</abbr></th>
+      <th><abbr title="fiado">Fiado</abbr></th>
+      <th><abbr title="created_at">Criado em</abbr></th>
+      <th><abbr title="updated_at">Atualizado em</abbr></th>
+      <th><abbr title="atualizar">Atualizar</abbr></th>
+      <th><abbr title="delete">Deletar</abbr></th>
     </tr>
-  @end
+  </thead>
+  <tbody>
+    @each(caixa in caixas)
+    @if(caixa.fiado)
+      <tr class="fiado">
+    @else
+      <tr {{{caixa.isEntrada == 1 ? 'class="entrada"' : 'class="saida"'}}}>
+    @endif
+        <td>{{ caixa.descricao }}</td>
+        <td>R$ {{ caixa.valor }}</td>
+        <td>{{ caixa.isEntrada ? "Entrada" : "Saída" }}</td>
+        <td>{{ caixa.fiado ? "Sim" : "Não" }}</td>
+        <td>{{ caixa.formatDate(caixa.createdAt) }}</td>
+        <td>{{ caixa.updatedAt ? caixa.formatDate(caixa.updatedAt) : "Sem registro"}}</td>
+        <td>
+            <button class="button is-link">
+              <a href="/caixa/{{ caixa.id}}/edit" class="edit-button">Editar</a>
+            </button>
+        </td>
+        <td>
+          <form form action="/caixa/{{ caixa.id }}/delete" method="POST">
+            {{ csrfField() }}
+            <button type="submit" class="button is-danger">Deletar</button>
+          </form>
+        </td>
+      </tr>
+    @end
+  </tbody>
 </table>
-  @if(auth.user.email_verified_at === null)
-  <form action="/send_email" method="POST">
-    {{ csrfField() }}
-    <button type="submit">Resend</button>
-  </form>
-  @endif
+
+<h2 class="subtitle">Total: {{ total }}</h2>
+
+<a class="button is-success" href="{{ '/caixa/create' }}">
+  Novo
+</a>
+  
 @end

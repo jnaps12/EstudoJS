@@ -7,7 +7,8 @@ export default class CaixaMecanicosController {
   public async index({ view, auth }) {
     const user = await User.findOrFail(auth.user.id)
     const caixas = await user.related('caixas').query()
-    return view.render('caixaMecanicos/index', { caixas })
+    let total = this.getTotal(caixas)
+    return view.render('caixaMecanicos/index', { caixas, total })
   }
 
   public async show({ view, params, auth, response, session }) {
@@ -57,5 +58,17 @@ export default class CaixaMecanicosController {
     }
     await caixa.delete()
     response.redirect('/caixa')
+  }
+
+  public getTotal(caixas) {
+    let total = 0
+    caixas.forEach((caixa) => {
+      if (caixa.isEntrada === 1) {
+        total += caixa.valor
+      } else {
+        total -= caixa.valor
+      }
+    })
+    return total
   }
 }

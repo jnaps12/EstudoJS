@@ -1,50 +1,44 @@
 @layout('layouts/main')
 @set('title', 'Novo caixa')
-@section('body')
+@set('page', 'Novo Caixa')
 
+
+
+@section('body')
   <form action="/caixa" method="POST">
       {{ csrfField() }}
 
       <div>
-        <p>
-          <label for="valor"> Valor </label>
-        </p>
 
-        <input type="number" name="valor" />
+        <label for="valor"> Valor </label>
+
+        <input class="input" type="number" name="valor" step="0.01"/>
       </div>
-
+      <br>
       <div>
-        <p>
           <label for="descricao"> Descrição </label>
-        </p>
-
-        <textarea name="descricao" cols="30" rows="10"></textarea>
+        <textarea class="textarea" name="descricao" cols="30" rows="10"></textarea>
       </div>
+      <br>
 
-      <div>
-        <p>
-          <label for="body"> Entrada ou Saída </label>
-        </p>
-        
+      <div class="control">
+        <label class="radio" for="body"> Entrada ou Saída </label> <br>
         <input type="radio" id="entrada" name="isEntrada" value="1">
-        <label for="entrada">Entrada</label><br>
+        <label for="entrada">Entrada</label> 
         <input type="radio" id="saida" name="isEntrada" value="0">
         <label for="saida">Saída</label>
       </div>
-
+      <br>
       <div>
-        <p>
-          <label for="fiado"> Fiado </label>
-        </p>
-
+        <label for="fiado"> Fiado </label><br>
         <input type="radio" id="fiado" name="fiado" value="1">
-        <label for="fiado">Sim</label><br>
+        <label for="fiado">Sim</label>
         <input type="radio" id="fiado" name="fiado" value="0">
         <label for="fiado">Não</label>
       </div>
-
+      <br>
       <div>
-        <button type="submit">Salvar</button>
+        <button class="button is-primary" type="submit">Salvar</button>
       </div>
   </form>
 @end

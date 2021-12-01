@@ -21,7 +21,7 @@
 import Route from '@ioc:Adonis/Core/Route'
 import './routes/caixa'
 
-Route.on('/').render('SessionsController.create')
+Route.on('/').render('sessions.create')
 
 //rotas para criaçaõ da sessão
 Route.get('/login', 'SessionsController.create').as('sessions.create')

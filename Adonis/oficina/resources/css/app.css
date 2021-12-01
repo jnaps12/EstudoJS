@@ -8,14 +8,14 @@ html, body {
   position: relative;
 }
 
-body:before {
-  content: '';
-  background: #5A45FF;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  position: absolute;
+.entrada{
+  background-color: lightgreen;
+}
+.saida{
+  background-color: lightcoral;
+}
+.fiado{
+  background-color: lightslategray;
 }
 
 * {
@@ -24,8 +24,15 @@ body:before {
 }
 
 a {
-  color: #5A45FF;
+  color: 5A45FF;
+  text-decoration: none; /* no underline */
+}
+a.edit-button{
+  color: white;
   text-decoration: none;
+}
+.bar{
+  color: #5A45FF;
 }
 
 main {
