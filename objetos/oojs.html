@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+  </body>
+
+    <script>
+      //Objeto literal = objeto com atributo iniciado diretamente, sem instancia por class.
+      let pessoa = {
+        nome: {
+          primeiro: "Junior",
+          segundo: "Pinheiro"
+        },
+        idade: 23,
+        sexo: "Masculino",
+        interesse: ["Violão", "Videogame"],
+        bio(){
+          return `${this.nome.primeiro} ${this.nome.segundo} tem ${this.idade} anos de idade. gosta de ${this.interesse[0]} e ${this.interesse[1]}.`;
+        },
+        saudacao(){
+          return `Olá!, Eu me chamo ${pessoa['nome']['primeiro']}`
+        }
+      };
+
+      //criando um class
+      class Person {
+        constructor(name, age, interests ){
+          this.name = name;
+          this.age = age;
+          this.interests = interests;
+        }
+
+        greetings(){
+          return `Hello, my name is ${this.name} and I'm ${Person['age']}, and my interests are ${this.interests}`;
+        }
+
+        static sayHi(){
+          return "Hi!";
+        }
+      }
+      
+
+      const external = () => {
+        const book = "Sapiens";
+
+        const internal = () => {
+          console.log(book.toUpperCase());
+        }
+
+        internal();
+      }
+
+
+    </script>
+</html>

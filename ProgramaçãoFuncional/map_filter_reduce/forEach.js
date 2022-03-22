@@ -21,5 +21,6 @@ async function buscaDados() {
   users.forEach(user => {
     console.log(user.address.street)
   });
+
 } 
 buscaDados()

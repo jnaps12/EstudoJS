@@ -1,0 +1,47 @@
+npm init ou npm init -y //para iniciar direto
+npm add express //para adicionar o express
+npm add typescript ts-node-dev @types/express -D //para instalar o TS com todas as dependencias
+tsc-init //para startar o TS
+criar pastar src -> cria arquivo server.ts (import express e iniciar o server)
+cria script de dev no package.json, "ts-node-dev --transpile-only src/server.ts"
+
+**Instalando typeorm
+
+npm install typeorm --save
+npm install reflect-metadata --save
+npm install mysql --save
+
+"typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
+depois vai no arquivor server.ts e coloca no começo import "reflect-metadata";
+vai no Ts config e coloca "emitDecoratorMetadata": true, "experimentalDecorators": true,
+
+**configurando typeorm
+
+criar .env na raiz do projeto e usa
+TYPEORM_CONNECTION = mysql
+TYPEORM_HOST = localhost
+TYPEORM_USERNAME = root
+TYPEORM_PASSWORD = 
+TYPEORM_DATABASE = test
+TYPEORM_PORT = 3000
+
+
+
+cria pasta database para configuração
+cria pasta migrations dentro de database
+
+depois em .env colocar 
+
+TYPEORM_MIGRATIONS = caminho para pasta da migrations
+TYPEORM_MIGRATIONS_DIR = pasta caminho/*.ts
+
+instala cli do typeorm seguindo o site do typeorm
+como vc instalou o ts-node-dev, basta adicionar "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js" no script do ts config
+
+usando typeorm -> npm run typeorm migration:create -- -n CreateCategories
+
+npm install uuid para configurar incrementação de id automática.
+
+
+npm run typeorm migrations:run
+npm run typeorm migrations:reverse
