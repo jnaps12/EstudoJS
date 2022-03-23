@@ -1,0 +1,31 @@
+
+img{
+  height: 80px;
+}
+
+
+
+div#mostrador{
+  margin: auto;
+  margin-top: 30px;
+  width: 252px;
+  height: 80px;
+}
+
+#mostrador img{
+  height: 50px;
+}
+
+.espaco{
+  width: 80px;
+  height: 80px;
+  border: 2px solid black;
+  float: left;
+}
+
+.tabuleiro{
+  margin: auto;
+  width: 252px;
+  height: 252px;
+}
+
