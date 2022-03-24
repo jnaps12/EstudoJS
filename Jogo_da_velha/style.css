@@ -29,3 +29,8 @@ div#mostrador{
   height: 252px;
 }
 
+#buttonReset{
+  margin-top: 30px;
+  text-align: center;
+}
+
