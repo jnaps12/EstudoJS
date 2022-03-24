@@ -68,20 +68,23 @@ async function verificarVencedor(){
   
   if(a1Verify){
     vencedor = a1;
-    console.log("a1")
   }else if(b2Verify){
     vencedor = b2;
-    console.log("b2");
   }else if(c3Verify){
     vencedor = c3;
-    console.log("c3");
+  }else if((a1 != "" && a2 != "" && a3 != "") && (b1 != "" && b2 != "" && b3 != "") && (c1 != "" && c2 != "" && c3 != "") && vencedor == ''){
+    vencedor = "#"
   }
 
-  if(vencedor != ''){
+  if(vencedor != '' && vencedor != "#"){
     gameOver = true;
 
     await sleep(50);
     alert("o Ganhador foi o : '"+ vencedor + "'")
+  }else if (vencedor == '#'){
+    gameOver = true;
+    await sleep(50);
+    alert("VELHA!");
   }
 
 }
