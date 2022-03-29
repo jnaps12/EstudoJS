@@ -1,0 +1,40 @@
+body{
+  margin: 20px;
+}
+
+h1{
+  text-align: center;
+}
+
+img{
+  border-right: 2px solid black;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  place-items: center start;
+  
+}
+
+#letras{
+  align-content: start;
+  margin-left: 50px;
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, 60px); */
+  gap: 10px;
+}
+
+.letra{
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
+
+#dicaField{
+  margin-left: 10px;
+}
+
+span{
+  font-weight: normal;
+  font-size: 25px;
+}
