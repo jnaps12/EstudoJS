@@ -33,7 +33,7 @@ function isGameOver(){
     let stringPlayed = gatherLettersPlayed();
     if(stringPlayed == palavra.texto){
       gameover = true;
-      console.log('venceu')
+      alert("Venceu")
     }
   }else{
     alert("Game over");
