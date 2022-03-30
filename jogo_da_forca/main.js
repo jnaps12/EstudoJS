@@ -2,7 +2,14 @@ let palavra = {
   texto: "irineu",
   dica: "Você não sabe, nem eu",
 };
+let lettersWord = palavra.texto.split("");
 const tam = palavra.texto.length;
+let errorsLimit = 0;
+let submitBtn = document.querySelector("button#submitBtn");
+let img = document.getElementById("img-forca");
+let gameOver = false;
+
+submitBtn.addEventListener("click", checkLetter);
 
 let letrasField = document.querySelector("div#letras");
 let dica = document.querySelector("span#dica");
@@ -21,21 +28,73 @@ function createLines(){
   }
 }
 
-function checkLetter(){
-  let letra = 'i';
-  let palavraArray = palavra.texto.split("");
-
-  
-  for (let cont = 0; cont < palavraArray.length; cont++) {
-    if(palavraArray[cont].toLowerCase() == letra.toLowerCase()){
-      let posLine = document.querySelector("h1#letra"+cont)
-      posLine.textContent = letra;
+function isGameOver(){
+  if(!gameOver){
+    let stringPlayed = gatherLettersPlayed();
+    if(stringPlayed == palavra.texto){
+      gameover = true;
+      console.log('venceu')
     }
+  }else{
+    alert("Game over");
+    return
   }
 }
 
+function checkLetter(){
+  let jogada = document.getElementById("input_letra").value;
+  console.log(jogada)
+  let checked = false;
+
+  if(gameOver){
+    alert("Game over"); 
+    return
+  }  
+
+  for (let cont = 0; cont < tam; cont++) {
+    if (lettersWord[cont].toLowerCase() == jogada.toLowerCase()) {
+      let posLine = document.querySelector("h1#letra" + cont);
+      posLine.textContent = jogada;
+      checked = true;
+    } 
+  }
+
+  if(!checked){
+    errorsLimit++;
+    changeImg();
+  }else{
+    isGameOver();
+  }
+  
+}
+
+
 createLines();
 
-checkLetter();
+
+function gatherLettersPlayed(){
+  let fieldString = "";
+  for (let cont = 0; cont < tam; cont++) {
+    let letter = document.querySelector("h1#letra"+cont);
+    fieldString += letter.textContent;
+  }
+  return fieldString;
+}
+
+function changeImg(){
+  img.src = `./imgs/${errorsLimit}.png`;
+  console.log(errorsLimit);
+
+  if(errorsLimit < 6){
+    return
+  }else{
+    gameOver = true;
+    alert("Game over");
+    isGameOver();
+  }
+}
+
+
+
 
 
