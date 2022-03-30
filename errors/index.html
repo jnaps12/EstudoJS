@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript try catch</title>
+</head>
+<body>
+  
+
+  <script>
+    //Reference Error - Basicamente é um error de uma variável ou função que não foi declarada.
+
+    // let x; 
+    // try {
+    //   x = y +1;
+    // } catch (error) {
+    //   console.log("Name: " + error.name);
+    //   console.log("Message: " +error.message);
+    // }
+
+    //Syntax Error 
+    // try {
+    //   eval("alert('hello')");
+    // } catch (error) {
+    //   console.log("Name: " + error.name);
+    //   console.log("Message: " + error.message);
+    // }
+
+    //TypeError
+    // let num = 1;
+    // try {
+    //   num.toUpperCase();
+    // } catch (error) {
+    //   console.log("Name: " + error.name);
+    //   console.log("Message: " + error.message);
+    // }
+
+    //lançando um error customizado
+    function userException(message){
+      this.message = message
+      this.name = "userException"
+    }
+
+    try {
+      let num = -6;
+      if(num < 0){
+        throw new userException("O número deve ser positivo.");
+      }
+      console.log("ok")
+    } catch (error) {
+      console.log(error)
+    }
+
+
+    //Lançando um error genérico.
+    try {
+        let num = -6;
+        if (num < 0) {
+          throw new Error("Utilizar apenas número positivos.")
+        }
+        console.log("ok")
+      } catch (e) {
+        console.log((e.name + ': ' + e.message))
+      }
+  </script>
+</body>
+</html>
