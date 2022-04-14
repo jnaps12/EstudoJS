@@ -1,0 +1,44 @@
+h1{
+  text-align: center;
+}
+:active{
+  cursor: none;
+}
+
+h2{
+  margin-bottom: 10px;
+}
+
+.card:hover{
+cursor: grab;
+}
+
+
+.dropzone{
+  border: 2px solid black;
+  width: 60vw;
+  height: 150px;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+
+.card{
+  border: 1px solid tomato;
+  height: 15px;
+  padding: 15px;
+}
+
+.card:hover{
+  background-color: tomato;
+  color: white;
+}
+
+
+.over {
+    background-color: #4cd13711;
+}
