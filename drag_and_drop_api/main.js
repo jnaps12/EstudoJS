@@ -72,6 +72,24 @@ function addWordsToBoard(){
   
 }
 
+function getAwnser(){
+  let cardsAwnser = dropzones[0].children;
+  let getFullString = '';
+
+  for(const card of cardsAwnser){
+    getFullString += card.innerText;
+  }
+
+  console.log(getFullString);
+
+  if(getFullString == "MaçãGoiaba"){
+    console.log('all right');
+  }else{
+    console.log('try again');
+  }
+}
+
+
 
 
 
