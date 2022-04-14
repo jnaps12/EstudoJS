@@ -80,12 +80,15 @@ function getAwnser(){
     getFullString += card.innerText;
   }
 
-  console.log(getFullString);
 
-  if(getFullString == "MaçãGoiaba"){
-    console.log('all right');
-  }else{
-    console.log('try again');
+  verifyAwnser(getFullString);
+}
+
+function verifyAwnser(finalAwnser){
+  if (finalAwnser == "MaçãGoiaba") {
+    console.log("all right");
+  } else {
+    console.log("try again");
   }
 }
 
