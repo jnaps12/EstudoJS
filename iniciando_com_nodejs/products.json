@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Caneta",
+    "price": 1,
+    "id": "9f0f77a9-8007-4020-8031-bf24d8c74813"
+  },
+  {
+    "name": "Confete colorido (carnaval)",
+    "price": 2,
+    "id": "ccd4abf1-5b1c-4356-ad98-8cd283770e1b"
+  },
+  { "name": "", "price": 5, "id": "7edc1c91-7e70-48ee-84a8-6ba77662b4a8" },
+  {
+    "name": "caderno para jênios",
+    "price": 5,
+    "id": "977e4ecb-6658-4515-848d-89d491930a1b"
+  }
+]

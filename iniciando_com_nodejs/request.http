@@ -1,0 +1,29 @@
+POST http://localhost:4002/products
+Content-Type: application/json
+
+{
+  "name": "caderno para jênios",
+  "price": 5
+}
+
+###
+
+GET http://localhost:4002/products
+
+###
+
+GET http://localhost:4002/products/e60cf816-02fb-4a2b-8f1d-889ecb27c055
+
+###
+
+PUT http://localhost:4002/products/ccd4abf1-5b1c-4356-ad98-8cd283770e1b
+Content-Type: application/json
+
+{
+  "name": "Confete colorido (carnaval)",
+  "price": 2
+}
+
+###
+
+DELETE http://localhost:4002/products/528e93aa-ae12-47fd-9b42-5c188b4132b5
