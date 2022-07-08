@@ -35,7 +35,7 @@
     "@adonisjs/view": "^6.1.1",
     "adonisjs-create-service": "github:hyungju/adonisjs-create-service",
     "luxon": "^2.1.1",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "mysql": "^2.18.1",
     "nanoid": "^3.1.31",
     "phc-argon2": "^1.1.2",
